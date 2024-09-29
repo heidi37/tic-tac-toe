@@ -1,11 +1,19 @@
-const boxArray = document.getElementsByClassName("box")
-let playerGoing = "X"
-
-for(box of boxArray){
-  box.addEventListener("click", function(e){
-    e.target.innerHTML = playerGoing
-    playerGoing === "X" ? playerGoing = "O" : playerGoing = "X"
-  })
+const gameObject = {
+  playerGoing: "X",
+  movePlayer: function(e){
+    e.target.innerHTML = this.playerGoing
+    this.playerGoing === "X" ? this.playerGoing = "O" : this.playerGoing = "X"
+  },
+  resetGame: function(){
+    location.reload()
+  }
 }
 
-console.log(boxArray)
+const boxArray = document.getElementsByClassName("box")
+const button = document.getElementById("reset")
+
+button.addEventListener("click", gameObject.resetGame.bind(gameObject))
+
+for(box of boxArray){
+  box.addEventListener("click", gameObject.movePlayer.bind(gameObject))
+}
