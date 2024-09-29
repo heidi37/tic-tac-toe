@@ -1,0 +1,21 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#board {
+  font-size: 4rem;
+}
+
+.row {
+  display: flex;
+  div {
+    //padding: 15px;
+    border: 1px solid black;
+    width: 75px;
+    height: 75px;
+    display: flex;
+    justify-content: center;
+  }
+}
